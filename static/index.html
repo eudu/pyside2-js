@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  </head>
+  <body>
+    <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script> <!-- Dev only -->
+    <script src="qwebchannel.js"></script>
+    <script src="qtconnector.js"></script>
+    <fieldset>
+      <legend>Вызов метода Qt из JS</legend>
+      <button onclick="window.server.calledFromJs()">Нажми меня!</button>
+
+    </fieldset>
+    <hr/>
+    <fieldset>
+      <legend>Вызов метода Qt из JS с аргументом</legend>
+      <label for="arg">Аргумент:</label>
+      <input type="number" id="arg" name="arg"
+             placeholder="введите число" step="1" />
+      <button onclick="window.server.calledFromJsWithArg(document.getElementById('arg').value)"> Нажми меня!</button>
+    </fieldset>
+    <hr/>
+    <fieldset>
+      <legend>Получение данных из Qt</legend>
+      <p>Нажмите кнопку «Случайное число» — это QPushButton</p>
+      <div>Случайное значение (генерируется python): <span id="value"></span></div>
+      </fieldset>
+    <hr/>
+    <fieldset>
+      <legend>Полный круг</legend>
+      <p>Нажатие кнопки отправит данные с аргументом в Qt, который вернёт факториал данного числа, вызвав сигнал factorial_changed.
+      </p>
+      <label for="arg2">Аргумент:</label>
+      <input type="number" id="arg2" name="arg2"
+             placeholder="введите число" step="1"/>
+      <button onclick="window.server.factorial(document.getElementById('arg2').value)"> Нажми меня!</button>
+      <div>Ответ Qt(факториал числа): <span id="value2"></span></div>
+    </fieldset>
+</body>
